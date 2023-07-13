@@ -6,13 +6,11 @@ function getTotalAccountsCount(accounts) {
   return (accounts.length);
 }
 
+//helper function
 function getBooksBorrowedCount(books) {
   let count = 0;
-  books.forEach(book => {
-    book.borrows.forEach(borrow => {
-      if (!borrow.returned)
-        count = count + 1;
-    });
+  books.forEach((book) => {
+    count = getBorrowedCount(book, count);
   });
   return count;
 }
